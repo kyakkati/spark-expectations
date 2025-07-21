@@ -58,6 +58,12 @@ class SparkExpectationsReader:
             _notification_dict: Dict[str, Union[str, int, bool, Dict[str, str]]] = (
                 {**_default_spark_conf, **notification} if notification else _default_spark_conf
             )
+            print(f"_notification_dict_count = {len(_notification_dict)}")
+            print(
+                f"_notification_dict.get(user_config.se_notifications_email_subject) = {_notification_dict.get(user_config.se_notifications_email_subject)}")
+            print(
+                f"_notification_dict.get(user_config.se_notifications_on_error_drop_threshold) = {_notification_dict.get(user_config.se_notifications_on_error_drop_threshold)}")
+
             if _notification_dict.get(user_config.se_enable_obs_dq_report_result) is True:
                 self._context.set_enable_obs_dq_report_result(True)
                 if _notification_dict.get(user_config.se_dq_obs_alert_flag) is True:
