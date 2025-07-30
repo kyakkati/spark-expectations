@@ -187,6 +187,8 @@ class SparkExpectations:
             _notification_dict: Dict[str, Union[str, int, bool, Dict[str, str], None]] = (
                 {**_default_notification_dict, **user_conf} if user_conf else _default_notification_dict
             )
+            print(
+                f"_notification_dict.get(user_config.se_notifications_email_subject) = {_notification_dict.get(user_config.se_notifications_email_subject)}")
 
             _default_stats_streaming_dict: Dict[str, Union[bool, str]] = json.loads(
                 self.spark.conf.get("default_streaming_dict")
